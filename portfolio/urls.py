@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import index
+from .views import getRoutes, getProjects
 
 urlpatterns = [
-    path('api/projects', index, name='home'),
+    path('api/', getRoutes, name='getRoutes'),
+    path('api/projects/', getProjects, name='getProjects'),
 ]

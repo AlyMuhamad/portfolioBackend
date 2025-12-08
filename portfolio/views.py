@@ -1,7 +1,21 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import ProjectSerializer
+from .models import Project
 
-# Create your views here.
-def index(request):
-    return JsonResponse({'message': 'Your projects'}, status=200)
+@api_view(['GET'])
+def getRoutes(request):
     
+    routes = [
+        {'GET': '/api/projects'},
+        {'GET': '/api/projects/id'}
+    ]
+    
+    return Response(routes)
+
+@api_view(['GET'])
+def getProjects(request):
+    projects = Project.objects.all()
+    serializer = ProjectSerializer(projects, many=True)
+    
+    return Response(serializer.data)
