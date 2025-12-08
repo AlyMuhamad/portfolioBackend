@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     
     # 3rd party
     'rest_framework',
+    'corsheaders',
     
     # LOCAL APP
     'portfolio.apps.PortfolioConfig'
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -126,3 +128,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    "https://aly-mohamed.vercel.app/",
+    "http://localhost:8000",
+    "http://localhost:3000",
+]
