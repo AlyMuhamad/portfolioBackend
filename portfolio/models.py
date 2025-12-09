@@ -8,7 +8,7 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     stack = models.CharField(max_length=200, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True, upload_to='projects/')
+    image = models.ImageField(null=True, blank=True, upload_to='images/')
     github = models.URLField(max_length=300, blank=True, null=True)
     site = models.URLField(max_length=300, blank=True, null=True)
     
